@@ -23,8 +23,6 @@ ADD . /app
 WORKDIR /app
 RUN uv sync --frozen
 
-
-
 # Collect static files for Django
 RUN uv run manage.py collectstatic --noinput
 
