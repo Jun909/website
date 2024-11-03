@@ -86,7 +86,8 @@ DATABASES = {
         'NAME': 'website_db', #webiste_db #password
         'USER': 'username',
         'PASSWORD': 'password',
-        'HOST': 'postgres_new', #localhost #postgres # or the IP address if it's a remote server
+        'HOST': 'postgres_new',
+        # 'HOST' : 'localhost',#localhost #postgres # or the IP address if it's a remote server
         'PORT': '5432',       # PostgreSQL’s default port
     }
 }
