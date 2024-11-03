@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "django>=5.1.2",
-    "mysqlclient>=2.2.5",
+    "psycopg>=3.2.3",
+    "psycopg-binary>=3.2.3",
 ]
