@@ -10,11 +10,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='userinfo',
-            name='birth_date',
-            field=models.DateField(default="2000-01-01"),
-        ),
+        # migrations.AlterField(
+        #     model_name='userinfo',
+        #     name='birth_date',
+        #     field=models.DateField(default="2000-01-01"),
+        # ),
         migrations.AlterField(
             model_name='userinfo',
             name='graduation_time',

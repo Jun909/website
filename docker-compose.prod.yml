@@ -1,16 +1,18 @@
-services:
-  postgres:
+services:  
+  postgres_new:
     image: postgres:14-alpine
     ports:
-      - 5432:5432
+      - 5433:5432  # Different host port to avoid conflicts
     volumes:
-      - ~/apps/postgres:/var/lib/postgresql/data
+      - ~/apps/postgres_new:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=username
-      - POSTGRES_DB=password
+      - POSTGRES_DB=website_db
     networks:
       - db_network
+
+
   app:
     build:
       context: .
@@ -18,9 +20,9 @@ services:
     ports:
       - 8000:8000
     environment:
-      - DATABASE_URL=postgresql://username:password@postgres:5432/password
+      - DATABASE_URL=postgresql://username:password@postgres_new:5432/website_db
     depends_on:
-      - postgres
+      - postgres_new
     networks:
       - db_network
 
