@@ -23,8 +23,8 @@ services:
       - DATABASE_URL=postgresql://username:password@postgres_new:5432/website_db
     depends_on:
       - postgres_new
-    volumes:
-      - ./application/templates:/app  # This line mounts the current directory to /app in the container
+    # volumes:
+    #   - .:/app  # This line mounts the current directory to /app in the container
     networks:
       - db_network
 

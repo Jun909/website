@@ -25,7 +25,16 @@ ADD . /app
 
 # Sync the project into a new environment, using the frozen lockfile
 WORKDIR /app
+
+
+# RUN python3 -m venv .venv
+# RUN . .venv/bin/activate
+# ENV PATH="/app/.venv/bin:$PATH"
+
+
 RUN uv sync --frozen
+
+
 
 # Collect static files for Django
 # RUN uv run manage.py collectstatic --noinput
