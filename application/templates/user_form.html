@@ -13,7 +13,7 @@
             align-items: center;
             justify-content: center;
             font-family: Arial, sans-serif;
-            background-color: #03d3fc;
+            background-color: #c5d9dd;
         }
 
         /* Centering container */
@@ -26,17 +26,91 @@
             background-color: #f9f9f9;
             text-align: center;
         }
+
+         /* Styling input fields */
+         input[type="text"], input[type="email"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 10rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: .15rem;
+            transition: all .3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        button:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0cf;
+            border-radius: 10rem;
+            z-index: -2;
+        }
+
+        button:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #0099cc; /* Darkened version of #0cf */
+            transition: all .3s;
+            border-radius: 10rem;
+            z-index: -1;
+        }
+
+        button:hover {
+            color: #fff;
+        }
+
+        button:hover:before {
+            width: 100%;
+        }
+
+/* 
+        button {
+            
+            background-color: #03a9f4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0288d1;
+        } */
+        
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h1>Application Form</h1>
+        <h1>申请表</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
-                
+                <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                {{ form.name }}
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">提交</button>
         </form>
     </div>
 </body>
