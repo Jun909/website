@@ -7,8 +7,10 @@
     <style>
         /* Ensure full height for centering */
         html, body {
-            height: 100%;
+            height: auto;
             margin: 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -19,12 +21,28 @@
         /* Centering container */
         .form-container {
             width: 100%;
-            max-width: 400px; /* Limit width of the form */
-            padding: 20px;
+            max-width: 800; /* Limit width of the form */
+            /* padding: 100px; */
+            padding-top: 30px;
+            padding-left: 150px;
+            padding-right: 150px;
+            padding-bottom: 50px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             background-color: #f9f9f9;
             text-align: center;
+            margin: 0 auto;
+            overflow-y: auto;
+            height: auto;
+        }
+
+        .form-container div.radio label {
+            display: inline-block;
+            margin-top: 7px;
+        }
+
+        .form-container form {
+            margin-left: -30px;   /* Move form elements slightly to the left */
         }
 
          /* Styling input fields */
@@ -39,7 +57,7 @@
 
         button {
             display: inline-block;
-            padding: 0.5rem 1.25rem;
+            padding: 0.3rem 1.25rem;
             border-radius: 10rem;
             color: #fff;
             text-transform: uppercase;
@@ -84,32 +102,51 @@
             width: 100%;
         }
 
-/* 
-        button {
-            
-            background-color: #03a9f4;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
 
-        button:hover {
-            background-color: #0288d1;
-        } */
-        
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h1>申请表</h1>
+        <h1>信息登记表格</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div>
+            <div style="text-align: left; margin-bottom: 20px;">
                 <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
                 {{ form.name }}
             </div>
+
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label for = " {{ form.highest_education.id_for_label }}">{{ form.highest_education.label }}</label>
+                <div class="radio">{{ form.highest_education }}</div>
+                
+            </div>
+
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label for="{{ form.gender.id_for_label}}">{{ form.gender.label}}</label>
+                <div class="radio">{{ form.gender }}</div>                
+            </div>
+
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label for="{{ form.major_type.id_for_label}}">{{ form.major_type.label}}</label>
+                <div class="radio">{{ form.major_type }}</div>                
+            </div>
+
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label for="{{ form.major.id_for_label }}">{{ form.major.label }}</label>
+                {{ form.major }}
+            </div>
+
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label for ="{{form.university.id_for_label}}">{{form.university.label}}</label>
+                {{form.university}}
+            </div>
+
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label for="{{ form.experience_abroad.id_for_label}}">{{ form.experience_abroad.label}}</label>
+                <div class="radio">{{ form.experience_abroad }}</div>                
+            </div>
+
+
             <button type="submit">提交</button>
         </form>
     </div>
