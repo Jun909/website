@@ -24,7 +24,7 @@
             max-width: 800; /* Limit width of the form */
             /* padding: 100px; */
             padding-top: 30px;
-            padding-left: 150px;
+            padding-left: 120px;
             padding-right: 150px;
             padding-bottom: 50px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -41,9 +41,11 @@
             margin-top: 7px;
         }
 
-        .form-container form {
-            margin-left: -30px;   /* Move form elements slightly to the left */
+        .form-container div.checkbox label {
+            display: inline-block;
+            margin-top: 7px;
         }
+
 
          /* Styling input fields */
          input[type="text"], input[type="email"], input[type="file"] {
@@ -110,42 +112,86 @@
         <h1>信息登记表格</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div style="text-align: left; margin-bottom: 20px;">
+            <div style="text-align: left; margin-bottom: 40px;">
                 <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
                 {{ form.name }}
             </div>
 
-            <div style="text-align: left; margin-bottom: 20px;">
+            <div style="text-align: left; margin-bottom: 40px;">
                 <label for = " {{ form.highest_education.id_for_label }}">{{ form.highest_education.label }}</label>
                 <div class="radio">{{ form.highest_education }}</div>
                 
             </div>
 
-            <div style="text-align: left; margin-bottom: 20px;">
+            <div style="text-align: left; margin-bottom: 40px;">
                 <label for="{{ form.gender.id_for_label}}">{{ form.gender.label}}</label>
                 <div class="radio">{{ form.gender }}</div>                
             </div>
 
-            <div style="text-align: left; margin-bottom: 20px;">
+            <div style="text-align: left; margin-bottom: 40px;">
                 <label for="{{ form.major_type.id_for_label}}">{{ form.major_type.label}}</label>
                 <div class="radio">{{ form.major_type }}</div>                
             </div>
 
-            <div style="text-align: left; margin-bottom: 20px;">
+            <div style="text-align: left; margin-bottom: 40px;">
                 <label for="{{ form.major.id_for_label }}">{{ form.major.label }}</label>
                 {{ form.major }}
             </div>
 
-            <div style="text-align: left; margin-bottom: 20px;">
+            <div style="text-align: left; margin-bottom: 40px;">
                 <label for ="{{form.university.id_for_label}}">{{form.university.label}}</label>
                 {{form.university}}
             </div>
 
-            <div style="text-align: left; margin-bottom: 20px;">
+            <div style="text-align: left; margin-bottom: 40px;">
                 <label for="{{ form.experience_abroad.id_for_label}}">{{ form.experience_abroad.label}}</label>
                 <div class="radio">{{ form.experience_abroad }}</div>                
             </div>
 
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.target_working_place.id_for_label}}">{{ form.target_working_place.label }}</label>
+                <div class="checkbox">{{ form.target_working_place }}</div>
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.type_of_job.id_for_label}}">{{ form.type_of_job.label }}</label>
+                <div class="checkbox">{{ form.type_of_job }}</div>
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.job_position_wanted.id_for_label}}">{{ form.job_position_wanted.label }}</label>
+                <div class="checkbox">{{ form.job_position_wanted }}</div>
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                {{ form.email }}
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.time_of_graduation.id_for_label }}">{{ form.time_of_graduation.label }}</label>
+                {{ form.time_of_graduation }}
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.birthdate.id_for_label }}">{{ form.birthdate.label }}</label>
+                {{ form.birthdate }}
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.political_info.id_for_label}}">{{ form.political_info.label}}</label>
+                <div class="radio">{{ form.political_info }}</div>                
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.highest_title_achieved.id_for_label}}">{{ form.highest_title_achieved.label}}</label>
+                <div class="radio">{{ form.highest_title_achieved }}</div>                
+            </div>
+
+            <div style="text-align: left; margin-bottom: 40px;">
+                <label for="{{ form.resume.id_for_label}}">{{ form.resume.label}}</label>
+                <div>{{ form.resume }}</div>                
+            </div>
 
             <button type="submit">提交</button>
         </form>
