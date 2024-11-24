@@ -1,4 +1,4 @@
-# Development\
+# Development
 to activate service:\
 docker-compose up -d --build
 
