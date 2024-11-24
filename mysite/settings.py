@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["website-gcu8.onrender.com"]
 
-
+CSRF_TRUSTED_ORIGINS = ["https://website-gcu8.onrender.com"]
 # Application definition
 
 INSTALLED_APPS = [
