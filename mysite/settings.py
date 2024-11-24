@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
+
+# port = os.getenv("PORT", 8000)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,24 +78,30 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
+#-----------------needs to be activated for production (deployment on render)-------------------------------
+# default database of django
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'website_db', #webiste_db #password
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': 'postgres_new',
-        # 'HOST' : 'localhost',#localhost #postgres # or the IP address if it's a remote server
-        'PORT': '5432',       # PostgreSQL’s default port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# database for production, postgresql from render
+DATABASES["default"] = dj_database_url.parse("postgresql://postgres_new_prod_user:tz1X4x6LWRmrbMhTPpiYj3ORsGCHuynm@dpg-cst3vb9u0jms73egtjqg-a.oregon-postgres.render.com/postgres_new_prod")
+#-----------------needs to be activated for production (deployment on render)-------------------------------
+
+# database for development using docker-compose
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'website_db', #webiste_db #password
+#         'USER': 'username',
+#         'PASSWORD': 'password',
+#         'HOST': 'postgres_new',
+#         # 'HOST' : 'localhost',#localhost #postgres # or the IP address if it's a remote server
+#         'PORT': '5432',       # PostgreSQL’s default port
+#     }
+# }
 
 
 

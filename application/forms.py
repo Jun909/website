@@ -95,6 +95,7 @@ class UserInfoForm(forms.ModelForm):
     target_working_place = forms.MultipleChoiceField(choices=TARGET_WORKING_PLACE, widget=forms.CheckboxSelectMultiple, label = '您的意向求职地区:【多选题】')
     type_of_job = forms.MultipleChoiceField(choices=TYPE_OF_JOB, widget=forms.CheckboxSelectMultiple, label='您的意向求职单位类型：【多选题】')
     job_position_wanted = forms.MultipleChoiceField(choices=JOB_POSITION_WANTED, widget=forms.CheckboxSelectMultiple, label='您的意向岗位类型：【多选题】')
+    time_of_graduation = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}), label='您的毕业时间：')
     birthdate = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}), label='您的出生日期：')
     political_info = forms.ChoiceField(choices=POLITICAL_INFO, widget=forms.RadioSelect, label= '您的政治面貌：')
     highest_title_achieved = forms.ChoiceField(choices=HIGHEST_TITLE_ACHIEVED, widget=forms.RadioSelect, label= '您获评的最高称职：')
